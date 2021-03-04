@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<h1>Index</h1>
+<p class="important"></p>
+<form action="{{ url_for('base_page') }}" method="POST">
+    <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input class="form-control" type="text" name="first_name" placeholder="" required>
+    </div>
+    <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input class="form-control" type="text" name="last_name" placeholder="" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="email" name="email" placeholder="" required>
+    </div>
+    <button type="submit" class="btn btn-md btn-success">Submit</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">first_name</th>
+            <th scope="col">last_name</th>
+            <th scope="col">email_address</th>
+        </tr>
+    </thead>
+    {% for row in rows %}
+    <tr>
+        <td>
+            {{row[0]}}
+        </td>
+        <td>
+            {{row[1]}}
+        </td>
+        <td>
+            {{row[2]}}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
